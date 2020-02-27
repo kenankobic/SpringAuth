@@ -61,8 +61,7 @@ public class AuthRestAPIs {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String jwt = jwtProvider.generateJwtToken(authentication);
-        return ResponseEntity.ok(new JwtResponse(jwt));
+        return ResponseEntity.ok(jwtProvider.generateJwtToken(authentication));
     }
 
     @PostMapping("/signup")
